@@ -16,21 +16,21 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    followers:{
-        type:Array,    //opcional si da tiempo y eso.
-        default:[]
+    followers: {
+        type: Array,    //opcional si da tiempo y eso.
+        default: []
 
     },
-    followins:{
+    followins: {
         type: Array,
-        default:[]
+        default: []
     },
 
     role: {
         type: String,
         enum: ["user", "admin", "super_admin"],
         default: "user",
-      },
+    },
 
 },
     {

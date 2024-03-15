@@ -1,5 +1,5 @@
 
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 
 
 const createPost = new Schema({
@@ -18,9 +18,7 @@ const createPost = new Schema({
 
     },
 
-
     author: [
-
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
@@ -30,7 +28,6 @@ const createPost = new Schema({
 
 
     like: [
-
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
