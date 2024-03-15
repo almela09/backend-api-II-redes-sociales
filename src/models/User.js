@@ -17,7 +17,7 @@ const UserSchema = new Schema({
         required: true,
     },
     followers:{
-        type:Array,
+        type:Array,    //opcional si da tiempo y eso.
         default:[]
 
     },
