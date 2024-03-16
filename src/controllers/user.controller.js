@@ -1,5 +1,6 @@
 import User from "../models/User"
 
+
 // router.get('/api/users'); // ver todos los usuarios super_admin
 // router.get('/api/users/profile'); //ver perfil usuario
 // router.put('/api/users'); //modificar perfil al menos un campo
@@ -79,11 +80,38 @@ export const getUserProfile = async (req, res) => {
 };
 
 //modificar perfil, al menos un campo.
-const updateUserProfile = (res, res) => {
+export const updateUserProfile = async (res, res) => {
+    const userId = req.params.id;
+    const updateData = req.body;
 
     try {
+        const updatedUser = await User.findByIdAndUpdate(userId, updateData, { new: true });
+
+        if (!updatedUser) {
+            return res.status(404).json(
+                {
+                    message: 'User not found'
+
+                },
+
+                res.status(200).json(
+                    {
+                        message: 'profile update success',
+                        user: updatedUser
+
+                    }
+                )
+            );
+        }
 
     } catch (error) {
+        res.status(500).json(
+            {
+                message: "update profile fails",
+                error: error
+
+            }
+        )
 
     }
 
