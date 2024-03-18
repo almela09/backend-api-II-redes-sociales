@@ -42,11 +42,33 @@ try {
 
 };
 
-const deleteById = (req,res)=>{
+const deleteById = async (req,res)=>{
     try {
+        const {_id} = req.params;
+        const deletedPost = await Post.findByIdDelete(_id);
+
+        if(!deletedPost) {
+            return res.status(404).json(
+                {
+                    message: 'Post not found'
+
+            },
+            res.status(200).json(
+                {
+                    message: 'Post deleted succesfully'
+            }
+            )
+            )
+        }
         
     } catch (error) {
-        
+       res.status(500).json(
+        {
+            message: 'error deleting post',
+            error: error
+
+       }
+       ) 
     }
 };
 
