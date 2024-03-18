@@ -9,11 +9,35 @@
 // router.get('/api/posts/:user_id');   //recuperar posts de un usuario
 
 
-const createPost = (req,res)=> {
+const createPost = async (req,res)=> {
 try {
+    const {
+        title, text, author
+    } = req.body;
+
+    const newPost = new Post (
+        {
+            title,
+            text,
+            author
+
+    }
+    );
+    const savedPost = await newPost.save();
+
+    res.status(201).json({
+        message: 'post created succesfully',
+        post: savedPost
+    })
+    
     
 } catch (error) {
-    
+    res.status(500).json(
+        {
+            message: 'error creating the post',
+            error: error
+    }
+    )
 }
 
 };
