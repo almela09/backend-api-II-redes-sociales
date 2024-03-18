@@ -9,7 +9,7 @@
 // router.get('/api/posts/:user_id');   //recuperar posts de un usuario
 
 
-const createPost = async (req,res)=> {
+export const createPost = async (req,res)=> {
 try {
     const {
         title, text, author
@@ -42,7 +42,7 @@ try {
 
 };
 
-const deleteById = async (req,res)=>{
+export const deleteById = async (req,res)=>{
     try {
         const {_id} = req.params;
         const deletedPost = await Post.findByIdDelete(_id);
@@ -72,13 +72,29 @@ const deleteById = async (req,res)=>{
     }
 };
 
-const updatePostById = (req,res)=>{
+export const updatePostById = async (req,res)=>{
 
     try {
+
+        const {_id} = req.params;
+        const updateData = req.body;
+        const updatedPost = await Post.findByIdUpdate (
+            _id, updateData, {new:true});
+
+    if(!updatedPost){
+        return res.status(404).json(
+            {
+                message: 'Post not found'
+
+        }
+        )
+    }
         
     } catch (error) {
-        
-    }
+        res.status(500).json({
+            message: 'update ',
+            error: error
+    })
 };
 
 const myOwnPost = (req,res)=>{
