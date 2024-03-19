@@ -80,7 +80,7 @@ export const getUserProfile = async (req, res) => {
 };
 
 //modificar perfil, al menos un campo.
-export const updateUserProfile = async (res, res) => {
+export const updateUserProfile = async (req, res) => {
     const userId = req.params.id;
     const updateData = req.body;
 
