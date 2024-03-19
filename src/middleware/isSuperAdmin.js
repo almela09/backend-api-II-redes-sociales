@@ -1,5 +1,4 @@
 
-
 export const isSuperAdmin = (req, res, next) => {
     
     try {

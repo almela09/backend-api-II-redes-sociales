@@ -8,8 +8,10 @@
 // router.get('/api/posts/:_id');   //recuperar posts por id
 // router.get('/api/posts/:user_id');   //recuperar posts de un usuario
 
+import Post from "../models/Post";
 
-export const createPost = async (req,res)=> {
+
+ const createPost = async (req,res)=> {
 try {
     const {
         title, text, author
@@ -42,7 +44,7 @@ try {
 
 };
 
-export const deleteById = async (req,res)=>{
+const deleteById = async (req,res)=>{
     try {
         const {_id} = req.params;
         const deletedPost = await Post.findByIdDelete(_id);
@@ -72,7 +74,7 @@ export const deleteById = async (req,res)=>{
     }
 };
 
-export const updatePostById = async (req,res)=>{
+const updatePostById = async (req,res)=>{
 
     try {
 
@@ -97,16 +99,26 @@ export const updatePostById = async (req,res)=>{
     })
 };
 
-const myOwnPost = (req,res)=>{
+const getMyPost = async(req,res)=>{
+
 try {
+
+    const userId = req.user._id
+    const posts = await Post.find({ author: { $in: [userId] } }).sort({ createdAt: -1 });
+    res.json(posts);
     
 } catch (error) {
-    
+    res.status(500).json({
+        message: 'Error retrieving the posts',
+        error: error
+    });
 }
 
 };
 
-const getAllPost = (req,res)=>{
+
+
+  const getAllPost = (req,res)=>{
 
 try {
     
@@ -135,3 +147,13 @@ const getUserPostById = (req,res)=>{
     }
 
 };
+
+}
+
+
+export{
+    createPost,
+    deleteById,
+    updatePostById,
+    getMyPost
+}

@@ -3,6 +3,8 @@ import { register, login } from "../controllers/auth.controller.js";
 
 
 const router = Router();
-router.post('/api/auth', register);
-router.post('/api/auth',login);
+router.post('/register', register);
+router.post('/login',login);
+
+export default router;
 

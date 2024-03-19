@@ -2,7 +2,7 @@
 import { Schema, model } from "mongoose";
 
 
-const createPost = new Schema({
+const PostSchema = new Schema({
     title: {
 
         type: String,
