@@ -9,4 +9,4 @@ router.get('/', auth, isSuperAdmin, getAllUser); // ver todos los usuarios super
 router.get('/profile', auth, getUserProfile); //ver perfil usuario
 router.put('/api/users', auth, updateUserProfile); //modificar perfil al menos un campo
 
-export default router;
+export default router; 
