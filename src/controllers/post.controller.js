@@ -99,57 +99,103 @@ const updatePostById = async (req,res)=>{
     })
 };
 
-// const getMyPost = async(req,res)=>{   //byId
+const getMyPost = async(req,res)=>{   //byId
 
-// try {
+try {
 
-//     const userId = req.user._id
-//     const posts = await Post.find({ author: { $in: [userId] } }).sort({ createdAt: -1 });
-//     res.json(posts);
+    const userId = req.user._id
+    const posts = await Post.find({ author: { $in: [userId] } }).sort({ createdAt: -1 });
+    res.json(posts);
 
     
-// } catch (error) {
-//     res.status(500).json({
-//         message: 'Error retrieving the posts',
-//         error: error
-//     });
-// }
+} catch (error) {
+    res.status(500).json({
+        message: 'Error retrieving the posts',
+        error: error
+    });
+}
 
-// };
+};
 
 
 
 const getAllPost = async (req,res)=>{
 
 try {
-    const posts = await Post.find();
-    res.status(200).json(posts);
+    const authorId = req.params._id;
+    const allUserPosts = await Post.find({ author: authorId });
+
+    res.status(200).json({
+        success: true,
+        message: "Posts retrieved successfully",
+        data: allUserPosts
+    });
 
 } catch (error) {
-       res.status(500).json({
-            message: 'Error al recuperar los posts',
-            error: error.message,
+
+      res.status(500).json({
+            success: false,
+            message: "Post can't be retrieved",
+            error: error,
         });
 }
 
 };
 
-const getPostById =(req,res)=>{
+const getPostById = async(req,res)=>{
     try {
-        
+        const { _id } = req.params;
+        const post = await Post.findById(_id);
+        if (!post) {
+            return res.status(404).json({
+                success: false,
+                message: "Post not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Post retrieved successfully",
+            data: post
+        });
+
     } catch (error) {
-        
+        res.status(500).json({
+            success: false,
+            message: "Error retrieving the post",
+            error: error,
+        });
     }
 
 
 };
 
-const getUserPostById = (req,res)=>{
+const getUserPostById = async(req,res)=>{
 
     try {
+        const { user_id } = req.params;
+        const userPosts = await Post.find({ author: user_id });
+        
+        if (!userPosts.length) {
+            return res.status(404).json({
+                success: true,
+                message: "No posts found for this user",
+                data: []
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Posts retrieved successfully",
+            data: userPosts
+        });
         
     } catch (error) {
-        
+         res.status(500).json({
+            success: false,
+            message: "Error retrieving the user's posts",
+            error: error,
+        });
     }
 
 };
@@ -161,7 +207,8 @@ export{
     createPost,
     deleteById,
     updatePostById,
-    getAllPost
-   
+    getAllPost,
+    getPostById,
+    getUserPostById  
 
 }
