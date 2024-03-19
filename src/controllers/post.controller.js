@@ -99,31 +99,37 @@ const updatePostById = async (req,res)=>{
     })
 };
 
-const getMyPost = async(req,res)=>{
+// const getMyPost = async(req,res)=>{   //byId
+
+// try {
+
+//     const userId = req.user._id
+//     const posts = await Post.find({ author: { $in: [userId] } }).sort({ createdAt: -1 });
+//     res.json(posts);
+
+    
+// } catch (error) {
+//     res.status(500).json({
+//         message: 'Error retrieving the posts',
+//         error: error
+//     });
+// }
+
+// };
+
+
+
+const getAllPost = async (req,res)=>{
 
 try {
+    const posts = await Post.find();
+    res.status(200).json(posts);
 
-    const userId = req.user._id
-    const posts = await Post.find({ author: { $in: [userId] } }).sort({ createdAt: -1 });
-    res.json(posts);
-    
 } catch (error) {
-    res.status(500).json({
-        message: 'Error retrieving the posts',
-        error: error
-    });
-}
-
-};
-
-
-
-  const getAllPost = (req,res)=>{
-
-try {
-    
-} catch (error) {
-    
+       res.status(500).json({
+            message: 'Error al recuperar los posts',
+            error: error.message,
+        });
 }
 
 };
@@ -155,5 +161,7 @@ export{
     createPost,
     deleteById,
     updatePostById,
-    getMyPost
+    getAllPost
+   
+
 }

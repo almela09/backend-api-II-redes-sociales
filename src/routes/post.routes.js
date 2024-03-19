@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 
+
 const router= Router();
 //en mongo el id es asi: _id 
 
