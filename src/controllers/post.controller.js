@@ -11,185 +11,6 @@
 import Post from "../models/Post.js";
 
 
-//  const createPost = async (req,res)=> {
-// try {
-//     const {
-//         title, text, author
-//     } = req.body;
-
-//     const newPost = new Post (
-//         {
-//             title,
-//             text,
-//             author
-
-//     }
-//     );
-//     const savedPost = await newPost.save();
-
-//     res.status(201).json({
-//         message: 'post created succesfully',
-//         post: savedPost
-//     })
-    
-    
-// } catch (error) {
-//     res.status(500).json(
-//         {
-//             message: 'error creating the post',
-//             error: error
-//     }
-//     )
-// }
-
-// };
-
-//  const deleteById = async (req,res)=>{
-//     try {
-//         const {_id} = req.params;
-//         const deletedPost = await Post.findByIdDelete(_id);
-
-//         if(!deletedPost) {
-//             return res.status(404).json(
-//                 {
-//                     message: 'Post not found'
-
-//             },
-//             res.status(200).json(
-//                 {
-//                     message: 'Post deleted succesfully'
-//             }
-//             )
-//             )
-//         }
-        
-//     } catch (error) {
-//        res.status(500).json(
-//         {
-//             message: 'error deleting post',
-//             error: error
-
-//        }
-//        ) 
-//     }
-// };
-
-// const updatePostById = async (req,res)=>{
-
-//     try {
-
-//         const {_id} = req.params;
-//         const updateData = req.body;
-//         const updatedPost = await Post.findByIdUpdate (
-//             _id, updateData, {new:true});
-
-//     if(!updatedPost){
-//         return res.status(404).json(
-//             {
-//                 message: 'Post not found'
-
-//         }
-//         )
-//     }
-        
-//     } catch (error) {
-//         res.status(500).json({
-//             message: 'update ',
-//             error: error
-//     })
-// };
-
-//  const getMyPost = async(req,res)=>{   //byId
-
-// try {
-
-//     const userId = req.user._id
-//     const posts = await Post.find({ author: { $in: [userId] } }).sort({ createdAt: -1 });
-//     res.json(posts);
-
-    
-// } catch (error) {
-//     res.status(500).json({
-//         message: 'Error retrieving the posts',
-//         error: error
-//     });
-// }
-
-// };
-
-
-
-// const getAllPost = async (req, res) => {
-
-//   try {
-    
-//   } catch (error) {
-    
-//   }
-// }
-
-// const getPostById = async(req,res)=>{
-//     try {
-//         const { _id } = req.params;
-//         const post = await Post.findById(_id);
-//         if (!post) {
-//             return res.status(404).json({
-//                 success: false,
-//                 message: "Post not found",
-//             });
-//         }
-
-//         res.status(200).json({
-//             success: true,
-//             message: "Post retrieved successfully",
-//             data: post
-//         });
-
-//     } catch (error) {
-//         res.status(500).json({
-//             success: false,
-//             message: "Error retrieving the post",
-//             error: error,
-//         });
-//     }
-
-
-// };
-
-// const getUserPostById = async(req,res)=>{
-
-//     try {
-//         const { user_id } = req.params;
-//         const userPosts = await Post.find({ author: user_id });
-        
-//         if (!userPosts.length) {
-//             return res.status(404).json({
-//                 success: true,
-//                 message: "No posts found for this user",
-//                 data: []
-//             });
-//         }
-
-//         res.status(200).json({
-//             success: true,
-//             message: "Posts retrieved successfully",
-//             data: userPosts
-//         });
-        
-//     } catch (error) {
-//          res.status(500).json({
-//             success: false,
-//             message: "Error retrieving the user's posts",
-//             error: error,
-//         });
-//     }
-
-// };
-
-// }
-
-
-
 export const createPost = async (req, res) => {
     try {
         const author = req.tokenData.userId; 
@@ -353,6 +174,44 @@ export const getPostById = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error retrieving the post",
+            error: error.message
+        });
+    }
+};
+
+
+export const putLikes = async (req, res) => {
+    try {
+        const postId = req.params.id;
+        const userId = req.tokenData.userId;
+
+        const findPost = await Post.findById(postId);
+        if (!findPost) {
+            return res.status(404).json({
+                success: false,
+                message: "Post not found"
+            });
+        }
+
+        const index = findPost.like.indexOf(userId);
+        if (index > -1) {
+            findPost.like.splice(index, 1); 
+        } else {
+            findPost.like.push(userId); 
+        }
+
+        await findPost.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Post like status updated successfully",
+            data: findPost
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error updating post like status",
             error: error.message
         });
     }
