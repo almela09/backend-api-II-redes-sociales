@@ -1,4 +1,4 @@
-import User from "../models/User"
+import User from "../models/User.js"
 
 
 // router.get('/api/users'); // ver todos los usuarios super_admin

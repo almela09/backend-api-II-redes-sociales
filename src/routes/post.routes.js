@@ -1,17 +1,17 @@
 import { Router } from "express";
-import { createPost, getAllPost, getPostById, updatePostById } from "../controllers/post.controller";
-
+// import { createPost, getPostById, updatePostById } from "../controllers/post.controller.js";
+import { auth } from "../middleware/auth.js";
 
 
 const router= Router();
 //en mongo el id es asi: _id 
 
-router.post('/api/posts', auth, createPost);   //CREAR post
-router.delete('/:_id', auth, deletePost);   //Eliminar post por id
-router.put('/:_id', auth, updatePostById);   //actualizar post por id
-router.get('/own', auth, getMyPost);  //recuperar mis propios posts 
-router.get('/', auth, getAllPost);   //recuperar todos los posts
-router.get('/:_id',auth,getPostById);   //recuperar posts por id
-router.get('/api/posts/:user_id');   //recuperar posts de un usuario
+router.post('/api/posts');   //CREAR post
+router.delete('/:_id');   //Eliminar post por id
+router.put('/:_id');   //actualizar post por id
+router.get('/own');  //recuperar mis propios posts 
+router.get('/' );   //recuperar todos los posts
+router.get('/:_id');   //recuperar posts por id
 
+router.put('/like/:_id')
 export default router;
