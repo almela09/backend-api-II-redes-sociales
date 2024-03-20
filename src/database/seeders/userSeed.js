@@ -5,7 +5,7 @@ import User from '../models/User.js';
 import 'dotenv/config';
 
 // Función para generar usuarios ficticios
-const generateUsers = async (number) => {
+export const generateUsers = async (number) => {
   const users = [];
 
   for (let i = 0; i < number; i++) {
@@ -19,8 +19,17 @@ const generateUsers = async (number) => {
       // followers y followins se dejan como arrays vacíos por defecto
       role: faker.helpers.arrayElement(['user', 'admin', 'super_admin']), // Asigna un rol aleatorio
     }));
-  }
+  
 
+
+    users.push(new User({
+        name: 'super_admin',
+        email: 'superadmin@superadmin.com',
+        password: hashedPassword,
+        role: 'super_admin'
+      }));
+      
+    }
   // Guarda todos los usuarios en la base de datos
   try {
     await User.insertMany(users);

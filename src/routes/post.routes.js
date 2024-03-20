@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { auth } from "../middleware/auth.js";
-import { createPost, deletePost, getAllPost, getPostById, updatePost } from "../controllers/post.controller.js";
+import { createPost, deletePost, getAllPost, getPostById, putLikes, updatePost } from "../controllers/post.controller.js";
 
 
 const router= Router();
@@ -13,5 +13,6 @@ router.put('/:id', auth, updatePost);   //actualizar post por id
 router.get('/own', auth, getAllPost);  //recuperar mis propios posts 
 router.get('/', auth, getPostById);   //recuperar todos los posts
 
-router.put('/like/:id')
+router.put('/like/:id', auth, putLikes); //dar quitar likes
+
 export default router;
