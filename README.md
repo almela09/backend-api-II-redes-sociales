@@ -7,6 +7,7 @@
 
 ### Sobre el proyecto ✏️📋:
 Se trata de una api de una red social en la que puedes registrarte, acceder a tu área persona y escribir posts, tambien podrás ver las publicaciones de otros usuarios y darles like. Este proyecto forma parte del Bootcamp de GeeksHubs.
+Enlace al DEPLOY: https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io
 
 ### Especificaciones 📏 :
 Api rest conectada a una base de datos de MongoDB en la que podemos encontrar dos colecciones: User y Post.
