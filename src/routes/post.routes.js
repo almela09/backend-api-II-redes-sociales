@@ -1,6 +1,5 @@
 import { Router } from "express";
-
-import { auth } from "../middleware/auth.js";
+import { auth } from "../middleware/auth.middlware.js";
 import { createPost, deletePost, getAllPost, getPostById, putLikes, updatePost } from "../controllers/post.controller.js";
 
 
