@@ -1,12 +1,13 @@
 # Backend II: Api Redes Sociales 🗣️✍️
 
------img----------------
+<image src="./img/rdss.webp" alt="Red Social">
+
 ### Tabla de contenidos:
 
     
 
 ### Sobre el proyecto ✏️📋:
-Se trata de una api de una red social en la que puedes registrarte, acceder a tu área persona y escribir posts, tambien podrás ver las publicaciones de otros usuarios y darles like. Este proyecto forma parte del Bootcamp de GeeksHubs.
+Se trata de una api de una red social en la que puedes registrarte, acceder a tu área personal y escribir posts, tambien podrás ver las publicaciones de otros usuarios y darles like. Este proyecto forma parte del Bootcamp de GeeksHubs.
 Enlace al DEPLOY: https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io
 
 ### Especificaciones 📏 :
@@ -41,7 +42,14 @@ Se han utilizado las siguientes tecnologías:
 
  ### Endpoints 🚩:
 
- -----añadir-------
+ Register:
+
+ https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/register
+
+ Login:
+
+ https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/login 
+
 
 
 
