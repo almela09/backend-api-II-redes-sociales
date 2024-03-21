@@ -28,13 +28,23 @@ const seed = async () => {
         })
         await admin.save();
 
-        const user = new User({
+        const user = new User(
+            {
             _id: "65fb06d73ced2d6c56cb47c4",
             username: "user",
             email: "user@user.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user",
-        })
+        },
+        {
+            _id: "65fc62da8764586f8f7fb4eb",
+            username: "andreu",
+            email: "andeu@andreu.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user",
+        }
+
+        )
         await user.save();
 
         const post = new Post(
@@ -43,7 +53,15 @@ const seed = async () => {
                 title: "asdasdas",
                 text: "asdsadsa",
                 author: "65fb06d73ced2d6c56cb47c4",
+            },
+            {
+                _id: "65fc64428764586f8f7fb4ee",
+                title: "hola soy un titulin",
+                text:"aquí podría escribirte algo profundo, pero no.",
+                author: "65fc62da8764586f8f7fb4eb"
+
             }
+            
         )
         await post.save();
         console.log("users created")

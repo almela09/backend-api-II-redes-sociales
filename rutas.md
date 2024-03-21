@@ -76,3 +76,6 @@ https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/{id}
 
 
 
+DARLE LIKE
+
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/like/65fb09073b95ec635e8b6fb9
