@@ -9,7 +9,6 @@ const PostSchema = new Schema({
         required: false,
 
     },
-
     text: {
 
         type: String,
@@ -17,17 +16,13 @@ const PostSchema = new Schema({
 
 
     },
+    author:
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
 
-    author: 
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-
-        },
-    
-
-
+    },
     like: [
         {
             type: Schema.Types.ObjectId,
@@ -36,17 +31,16 @@ const PostSchema = new Schema({
 
         }
     ]
-
 },
-
     {
         timestamps: true,
         versionKey: false,
     }
-
-
 );
 
 const Post = model("Post", PostSchema);
 
 export default Post;
+
+//LINEAS EN BLANCO
+//cambiar like

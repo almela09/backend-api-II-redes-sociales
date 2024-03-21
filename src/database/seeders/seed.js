@@ -1,25 +1,60 @@
 import { dbConnection } from "../db.js";
 import mongoose from "mongoose";
-import generateUsers from "./userSeed.js"
 import "dotenv/config";
-import postSeed from "./postSeed.js";
+import bcrypt from "bcrypt"
+import User from "../../models/User.js";
+import Post from "../../models/Post.js";
+import { Faker } from "@faker-js/faker";
+
+dbConnection();
 
 const seed = async () => {
     try {
-        await dbConnection();
-        console.log("Database connected");
-        await generateUsers(10);
-        await postSeed();
+        const superAdmin = new User({
+            _id: "65fb06d63ced2d6c56cb47bf",
+            username: "superAdmin",
+            email: "superadmin@superadmin.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "super_admin",
+        })
+        await superAdmin.save();
 
+        const admin = new User({
+            _id: "65fb06d73ced2d6c56cb47c2",
+            username: "Admin",
+            email: "admin@admin.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "admin",
+        })
+        await admin.save();
+
+        const user = new User({
+            _id: "65fb06d73ced2d6c56cb47c4",
+            username: "user",
+            email: "user@user.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user",
+        })
+        await user.save();
+
+        const post = new Post(
+            {
+                _id: "65fb09073b95ec635e8b6fb9",
+                title: "asdasdas",
+                text: "asdsadsa",
+                author: "65fb06d73ced2d6c56cb47c4",
+            }
+        )
+        await post.save();
+        console.log("users created")
+        console.log("Post created")
     } catch (error) {
-        console.log("Database connection failed");
-        console.log(error.message);
-    }
-
-    finally {
-        await mongoose.connection.close();
-        console.log("Database connection closed");
+        console.log(error)
+    } finally {
+        mongoose.connection.close()
     }
 }
-
 seed();
+
+
+

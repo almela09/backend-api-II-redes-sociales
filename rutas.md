@@ -70,3 +70,9 @@ https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts
 }
 
 
+DELETE POST
+
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/{id}
+
+
+
