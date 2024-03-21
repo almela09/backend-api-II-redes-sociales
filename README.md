@@ -1,6 +1,6 @@
 # Backend II: Api Redes Sociales 🗣️✍️
 
-<image src="./img/rdss.webp" alt="Red Social">
+<image src="./img/chicamovil.jpg" alt="Red Social">
 
 ### Tabla de contenidos:
 
@@ -42,11 +42,20 @@ Se han utilizado las siguientes tecnologías:
 
  ### Endpoints 🚩:
 
- Register:
+ #### Superadmin:
+    -email: superadmin@superadmin.com
+    -password: 123456789
+
+#### User:
+    -email: user@user.com
+    -password: 123456789
+
+
+#### Register:
 
  https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/register
 
- Login:
+ #### Login:
 
  https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/login 
 
