@@ -4,7 +4,6 @@ import "dotenv/config";
 import bcrypt from "bcrypt"
 import User from "../../models/User.js";
 import Post from "../../models/Post.js";
-import { Faker } from "@faker-js/faker";
 
 dbConnection();
 
@@ -42,8 +41,50 @@ const seed = async () => {
             email: "andeu@andreu.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user",
-        }
-
+        },
+        {
+            _id: "65fd459b6d03e8796104ccab",
+            username: "ana",
+            email: "ana@ana.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "5fea3a41c331a830afeaac8",
+            username: "turia",
+            email: "turia@turia.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65fea4001c331a830afeaaca",
+            username: "oreo",
+            email: "oreo@oreo.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65fea4671c331a830afeaacc",
+            username: "miguelangel",
+            email: "miguelangel@miguelangel.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65fea57c1c331a830afeaace",
+            username: "josep",
+            email:"josep@josep.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65feb9eb1c331a830afeaad0",
+            username: "lula",
+            email: "lula@lula.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+    
         )
         await user.save();
 
@@ -59,9 +100,68 @@ const seed = async () => {
                 title: "hola soy un titulin",
                 text:"aquí podría escribirte algo profundo, pero no.",
                 author: "65fc62da8764586f8f7fb4eb"
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
 
-            }
-            
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
+            {
+                _id: "",
+                title: "",
+                text:"",
+                author: ""
+            },
         )
         await post.save();
         console.log("users created")
@@ -73,6 +173,7 @@ const seed = async () => {
     }
 }
 seed();
+
 
 
 

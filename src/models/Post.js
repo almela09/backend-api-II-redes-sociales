@@ -1,7 +1,6 @@
 
 import { Schema, model } from "mongoose";
 
-
 const PostSchema = new Schema({
     title: {
 
@@ -13,15 +12,12 @@ const PostSchema = new Schema({
 
         type: String,
         required: false,
-
-
     },
     author:
     {
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-
     },
     like: [
         {
@@ -37,10 +33,6 @@ const PostSchema = new Schema({
         versionKey: false,
     }
 );
-
 const Post = model("Post", PostSchema);
-
 export default Post;
 
-//LINEAS EN BLANCO
-//cambiar like

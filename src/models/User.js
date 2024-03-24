@@ -5,13 +5,11 @@ const UserSchema = new Schema({
         type: String,
         required: false,
     },
-
     email: {
         type: String,
         required: true,
         unique: true,
     },
-
     password: {
         type: String,
         required: true,
@@ -25,20 +23,16 @@ const UserSchema = new Schema({
         type: Array,
         default: []
     },
-
     role: {
         type: String,
         enum: ["user", "admin", "super_admin"],
         default: "user",
     },
-
 },
     {
         timestamps: true,
         versionKey: false,
     }
-
 );
-
 const User = model("User", UserSchema);
 export default User;

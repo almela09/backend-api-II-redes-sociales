@@ -5,8 +5,8 @@ import { getAllUser, getUserProfile, updateUserProfile } from "../controllers/us
 
 const router= Router();
 
-router.get('/', auth, isSuperAdmin, getAllUser); // ver todos los usuarios super_admin
-router.get('/profile', auth, getUserProfile); //ver perfil usuario
-router.put('/api/users', auth, updateUserProfile); //modificar perfil al menos un campo
+router.get('/', auth, isSuperAdmin, getAllUser); 
+router.get('/profile', auth, getUserProfile); 
+router.put('/api/users', auth, updateUserProfile); 
 
 export default router; 

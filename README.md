@@ -4,7 +4,12 @@
 
 ### Tabla de contenidos:
 
-    
+- Sobre el proyecto
+-Especificaciones
+-Instalacion en local
+-Diseño Base de Datos
+-Endpoints
+-Autor
 
 ### Sobre el proyecto ✏️📋:
 Se trata de una api de una red social en la que puedes registrarte, acceder a tu área personal y escribir posts, tambien podrás ver las publicaciones de otros usuarios y darles like. Este proyecto forma parte del Bootcamp de GeeksHubs.
@@ -29,40 +34,72 @@ Se han utilizado las siguientes tecnologías:
 📌![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
 
 
-## Instalación en local 💾:
+### Instalación en local 💾:
 
 1. Clonar repositorio.
 
 2. Instalar dependencias: `$ npm install`.
 3. Crear una conexión con MongoAtlas.
- 4. Conectar el repositorio en Mongo Compass.
- 5. Ejecutar seeders: `$ npm run seeder`.
+4. Conectar el repositorio en Mongo Compass.
+5. Ejecutar seeders: `$ npm run seeder`.
 
- 6. Poner en marcha el servidor `$ npm run dev`.
+6. Poner en marcha el servidor `$ npm run dev`.
 
- ### Endpoints 🚩:
+#### Diseño Base De Datos ✍️
+<image src="./img/IMG_1363.jpg" alt="Red Social">
 
- #### Superadmin:
-    -email: superadmin@superadmin.com
-    -password: 123456789
+ #### Endpoints 🚩:
 
-#### User:
-    -email: user@user.com
-    -password: 123456789
+ ##### Superadmin:
+ {
+   "email": "superadmin@superadmin.com"
+   "password": "123456789"
+   }
+
+##### Admin:
+{
+   "email": "admin@admin.com"
+   "password": "123456789"
+   }
+
+##### User:
+    {
+   "email": "user@user.com"
+   "password": "123456789"
+   }
 
 
-#### Register:
+##### Register:
 
 https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/register
 
- #### Login:
+ ##### Login:
 
  https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/login 
 
 
 
+##### Crear post:
 
- ### Autor 🌱
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts
+
+##### Delete post:
+
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/{id}
+
+##### Update post:
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/65ffdfbd1c331a830afeaade
+
+##### Get my Own post:
+
+
+##### Dar/quitar like:
+
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/like/65fb09073b95ec635e8b6fb9
+
+
+
+ #### Autor 🌱
 
  Paula Almela
 
