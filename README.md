@@ -91,7 +91,7 @@ https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/{id}
 https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/65ffdfbd1c331a830afeaade
 
 ##### Get my Own post:
-
+https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts/
 
 ##### Dar/quitar like:
 

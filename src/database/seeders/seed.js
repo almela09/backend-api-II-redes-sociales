@@ -36,51 +36,58 @@ const seed = async () => {
             role: "user",
         },
         {
-            _id: "65fc62da8764586f8f7fb4eb",
+            _id: "65ffe2c5681a9c52f8a1d581",
             username: "andreu",
             email: "andeu@andreu.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user",
         },
         {
-            _id: "65fd459b6d03e8796104ccab",
+            _id: "65ffe2ed681a9c52f8a1d583",
             username: "ana",
             email: "ana@ana.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
         {
-            _id: "5fea3a41c331a830afeaac8",
+            _id: "65ffe311681a9c52f8a1d585",
             username: "turia",
             email: "turia@turia.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
         {
-            _id: "65fea4001c331a830afeaaca",
+            _id: "65ffe332681a9c52f8a1d587",
             username: "oreo",
             email: "oreo@oreo.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
         {
-            _id: "65fea4671c331a830afeaacc",
+            _id: "65ffe355681a9c52f8a1d589",
             username: "miguelangel",
-            email: "miguelangel@miguelangel.com",
+            email: "miguelangel@miguel.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
         {
-            _id: "65fea57c1c331a830afeaace",
+            _id: "65ffe37f681a9c52f8a1d58b",
             username: "josep",
             email:"josep@josep.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
         {
-            _id: "65feb9eb1c331a830afeaad0",
+            _id: "65ffe3a4681a9c52f8a1d58d",
             username: "lula",
             email: "lula@lula.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffe696681a9c52f8a1d594",
+            username: "paco",
+            email: "paco@paco.com",
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
@@ -102,22 +109,22 @@ const seed = async () => {
                 author: "65fc62da8764586f8f7fb4eb"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffe4ec681a9c52f8a1d58f",
+                title: "soy el post de OREO",
+                text:"soy otro parrafo random",
+                author: "65ffdadf1c331a830afeaad6"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffe6f0681a9c52f8a1d597",
+                title: "soy el post ded Paco",
+                text:"texto de Paco",
+                author: "65ffe696681a9c52f8a1d594"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffe746681a9c52f8a1d599",
+                title: "soy el SEGUNDO post de Paco",
+                text:"texto SEGUNDO de Paco",
+                author: "65ffe696681a9c52f8a1d594"
             },
             {
                 _id: "",
