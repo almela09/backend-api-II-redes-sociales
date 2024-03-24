@@ -77,8 +77,6 @@ https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/register
 
  https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/auth/login 
 
-
-
 ##### Crear post:
 
 https://backend-api-ii-redes-sociales-dev-fnbs.2.ie-1.fl0.io/api/posts

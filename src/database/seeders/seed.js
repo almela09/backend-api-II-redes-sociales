@@ -91,6 +91,55 @@ const seed = async () => {
             password: bcrypt.hashSync("123456789", 12),
             role: "user"
         },
+        {
+            _id: "65ffeaf6fe88df29df3922d0",
+            username: "leonor",
+            email: "leonor@leonor.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffebedfe88df29df3922d5",
+            username: "xativa",
+            email: "xativa@xativa.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffed67fe88df29df3922e4",
+            username: "concha",
+            email: "concha@concha.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffec93fe88df29df3922da",
+            username: "vice",
+            email: "vice@vice.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffedeffe88df29df3922e9",
+            username: "carla",
+            email: "carla@carla.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffee96fe88df29df3922ee",
+            username: "hansolo",
+            email: "hansolo@hansolo.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
+        {
+            _id: "65ffef47fe88df29df3922f3",
+            username: "leia",
+            email: "leia@leia.com",
+            password: bcrypt.hashSync("123456789", 12),
+            role: "user"
+        },
     
         )
         await user.save();
@@ -127,47 +176,47 @@ const seed = async () => {
                 author: "65ffe696681a9c52f8a1d594"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffeb90fe88df29df3922d3",
+                title: "Soy el titulo del post de Leonor",
+                text:"aqui va el texto de Leonor",
+                author: "65ffeaf6fe88df29df3922d0"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffec50fe88df29df3922d8",
+                title: "Soy el titulo del post de Xativa",
+                text:"aqui va el texto de Xtv",
+                author: "65ffebedfe88df29df3922d5"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffece0fe88df29df3922dd",
+                title: "Soy el titulo del post de Vice",
+                text:"aqui va el texto de Vice",
+                author: "65ffec93fe88df29df3922da"
 
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffedb2fe88df29df3922e7",
+                title: "Soy el titulo del post de Concha",
+                text:"aqui va el texto de Concha",
+                author: "65ffed67fe88df29df3922e4"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffee4afe88df29df3922ec",
+                title: "Soy el titulo del post de Carla",
+                text:"aqui va el texto de Carla",
+                author: "65ffedeffe88df29df3922e9"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffeef2fe88df29df3922f1",
+                title: "Aqui mi post de Star Wars",
+                text:"its a trap",
+                author: "65ffee96fe88df29df3922ee"
             },
             {
-                _id: "",
-                title: "",
-                text:"",
-                author: ""
+                _id: "65ffefd7fe88df29df3922f6",
+                title: "I told him I love u",
+                text:"and he replied me: I know",
+                author: "65ffef47fe88df29df3922f3"
             },
         )
         await post.save();
