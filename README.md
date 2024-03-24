@@ -4,12 +4,12 @@
 
 ### Tabla de contenidos:
 
-- Sobre el proyecto
--Especificaciones
--Instalacion en local
--Diseño Base de Datos
--Endpoints
--Autor
+- [Sobre el proyecto](#sobre-el-proyecto-✏️📋)
+- [Especificaciones](#especificaciones-📏)
+- [Instalacion en local](#instalación-en-local-💾)
+- [Diseño Base de Datos](#diseño-base-de-datos-✍️)
+- [Endpoints](#endpoints-🚩)
+- [Autor](#autor-🌱)
 
 ### Sobre el proyecto ✏️📋:
 Se trata de una api de una red social en la que puedes registrarte, acceder a tu área personal y escribir posts, tambien podrás ver las publicaciones de otros usuarios y darles like. Este proyecto forma parte del Bootcamp de GeeksHubs.
