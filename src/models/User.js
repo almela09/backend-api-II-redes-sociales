@@ -5,6 +5,11 @@ const UserSchema = new Schema({
         type: String,
         required: false,
     },
+    description: {
+        type: String,
+        default: "" //put de este campo para añadir una descripcion al usuario.
+        
+    },
     email: {
         type: String,
         required: true,
