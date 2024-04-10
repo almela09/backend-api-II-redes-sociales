@@ -5,6 +5,11 @@ const UserSchema = new Schema({
         type: String,
         required: false,
     },
+    urlImg: {
+        type: String,
+        required: true,
+    },
+    
     description: {
         type: String,
         default: "" //put de este campo para añadir una descripcion al usuario.

@@ -101,28 +101,28 @@ export const getMyOwnPost = async (req, res) => {
         });
     }
 };
-export const getAllPost = async (req, res) => {
-    try {
-        const findPosts = await Post.find({});
-        if (findPosts.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No posts found"
-            });
-        }
-        res.status(200).json({
-            success: true,
-            message: "All posts retrieved",
-            data: findPosts
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Posts didn't retrieved",
-            error: error.message
-        });
-    }
-};
+// export const getAllPost = async (req, res) => {
+//     try {
+//         const findPosts = await Post.find({});
+//         if (findPosts.length === 0) {
+//             return res.status(404).json({
+//                 success: false,
+//                 message: "No posts found"
+//             });
+//         }
+//         res.status(200).json({
+//             success: true,
+//             message: "All posts retrieved",
+//             data: findPosts
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             success: false,
+//             message: "Posts didn't retrieved",
+//             error: error.message
+//         });
+//     }
+// };
 export const getPostById = async (req, res) => {
     try {
         const postId = req.params.id;
@@ -180,3 +180,25 @@ export const putLikes = async (req, res) => {
     }
 };
 
+export const getAllPosts = async (req, res) => {
+    try {
+        const findPosts = await Post.find({});
+        if (findPosts.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No posts found"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "All posts retrieved",
+            data: findPosts
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Posts didn't retrieved",
+            error: error.message
+        });
+    }
+};
