@@ -27,7 +27,8 @@ export const getAllUser = async (req, res) => {
 };
 export const getUserProfile = async (req, res) => {
     try {
-        const user = await User.findById(req.userId);
+        //console.log(req);
+        const user = await User.findById(req.tokenData.userId);
         if (!user) {
             return res.status(404).json(
                 {
@@ -41,6 +42,11 @@ export const getUserProfile = async (req, res) => {
             username: user.username,
             email: user.email,
         }
+        /*console.log("a");
+        const userProfile = {   //omitir la contraseña...
+            username: "aa",
+            email: "d@d.com",
+        }*/
         res.json(userProfile);
     } catch (error) {
         res.status(500).json(

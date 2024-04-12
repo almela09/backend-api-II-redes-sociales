@@ -6,7 +6,7 @@ import { getAllUser, getUserProfile, updateUserProfile } from "../controllers/us
 const router= Router();
 
 router.get('/', auth, isSuperAdmin, getAllUser); 
-router.get('/profile', auth, getUserProfile); 
-router.put('/api/users', auth, updateUserProfile); 
+router.get('/profile', auth, getUserProfile); //api/users/profile
+router.put('/api/users', auth, updateUserProfile); //api/api/users
 
 export default router; 

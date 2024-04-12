@@ -82,6 +82,7 @@ export const getMyOwnPost = async (req, res) => {
     try {
         const userId = req.tokenData.userId;
         const ownPosts = await Post.find({ author: userId });
+        console.log(ownPosts);
         if (ownPosts.length === 0) {
             return res.status(404).json({
                 success: false,
