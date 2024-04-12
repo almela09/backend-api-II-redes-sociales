@@ -5,10 +5,7 @@ const UserSchema = new Schema({
         type: String,
         required: false,
     },
-    urlImg: {
-        type: String,
-        required: true,
-    },
+   
     
     description: {
         type: String,
