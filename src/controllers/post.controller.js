@@ -30,6 +30,7 @@ export const createPost = async (req, res) => {
 export const deletePost = async (req, res) => {
     try {
         const postId = req.params.id;
+        console.log(postId)
         const userId = req.tokenData.userId;
         const findPost = await Post.findOne({ _id: postId, author: userId });
         if (!findPost) {
