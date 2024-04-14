@@ -3,8 +3,9 @@ import Post from "../models/Post.js";
 export const createPost = async (req, res) => {
     try {
         const author = req.tokenData.userId;
+        console.log(req)
         const { text, title } = req.body;
-
+        console.log(text);
         if (!text) {
             return res.status(400).json({
                 success: false,
@@ -177,6 +178,42 @@ export const putLikes = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error updating post like status",
+            error: error.message
+        });
+    }
+};
+
+export const removeLikes = async (req, res) => {
+    try {
+        const postId = req.params.id;
+        const userId = req.tokenData.userId;
+        const findPost = await Post.findById(postId);
+        if (!findPost) {
+            return res.status(404).json({
+                success: false,
+                message: "Post not found"
+            });
+        }
+        const index = findPost.like.indexOf(userId);
+        if (index > -1) {
+            findPost.like.splice(index, 1); // Remove like if found
+            await findPost.save();
+            res.status(200).json({
+                success: true,
+                message: "Like removed successfully",
+                data: findPost
+            });
+        } else {
+            res.status(200).json({
+                success: false,
+                message: "Like not found on this post",
+                data: findPost
+            });
+        }
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error removing like",
             error: error.message
         });
     }
