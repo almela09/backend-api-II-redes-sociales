@@ -4,6 +4,7 @@ const UserSchema = new Schema({
     name: {
         type: String,
         required: false,
+        default:"your_name"
     },
    
     

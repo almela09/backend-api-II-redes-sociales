@@ -2,8 +2,7 @@ import User from "../models/User.js"
 
 export const getAllUser = async (req, res) => {
     try {
-
-        if (req.user && req.user.role === 'super_admin') {
+        if (req.tokenData.userId && req.tokenData.roleName === 'super_admin') {
             const users = await User.find({});
             res.json(users);
         } else {
@@ -39,7 +38,7 @@ export const getUserProfile = async (req, res) => {
             );
         }
         const userProfile = {   //omitir la contraseña...
-            username: user.username,
+            name: user.name,
             email: user.email,
         }
         /*console.log("a");
